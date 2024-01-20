@@ -14,6 +14,18 @@ npm install --save-dev react react-dom @types/react @types/react-dom typescript
 npx tsc --init
 ```
 
+# How to lint
+
+```
+npm run eslint
+```
+
+# How to format
+
+```
+npm run format
+```
+
 # How to build
 
 ```

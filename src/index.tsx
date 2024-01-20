@@ -1,6 +1,6 @@
 import React from "react";
 
-const HelloWorld = () => {
+const HelloWorld: React.FunctionComponent = () => {
   return (
     <div>
       <span>Hello npm world!</span>
