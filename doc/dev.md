@@ -29,7 +29,7 @@ npm run format
 # How to build
 
 ```
-npx tsc
+npm run build
 ```
 
 # How to publish
