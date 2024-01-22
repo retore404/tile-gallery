@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  node:
+    container_name: npm-tile-gallery
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/workspace
+    tty: true
+    stdin_open: true
