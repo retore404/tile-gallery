@@ -4,6 +4,7 @@ interface GalleryImage {
   url: string;
   width: number;
   height: number;
+  suffix?: string;
 }
 
 interface GalleryProps {
@@ -110,7 +111,11 @@ const TileGallery: React.FunctionComponent<GalleryProps> = ({
               data-title={image.url}
             >
               <img
-                src={image.url + "?w=600"}
+                src={
+                  image.suffix !== null && image.suffix !== undefined
+                    ? image.url + image.suffix
+                    : image.url
+                }
                 width={image.width}
                 height={image.height}
                 style={styles.galleryImage}
@@ -129,7 +134,11 @@ const TileGallery: React.FunctionComponent<GalleryProps> = ({
               data-title={image.url}
             >
               <img
-                src={image.url + "?w=600"}
+                src={
+                  image.suffix !== null && image.suffix !== undefined
+                    ? image.url + image.suffix
+                    : image.url
+                }
                 width={image.width}
                 height={image.height}
                 style={styles.galleryImage}
