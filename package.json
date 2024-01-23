@@ -1,6 +1,6 @@
 {
   "name": "tile-gallery",
-  "version": "0.1.1",
+  "version": "0.2.1",
   "description": "A tile gallery component for react",
   "main": "./dist/index.js",
   "directories": {
@@ -8,7 +8,7 @@
   },
   "scripts": {
     "build": "rm -rf ./dist && npx tsc",
-    "eslint": "npx eslint \"**/*.{ts,tsx}\"",
+    "eslint": "npx eslint \"src/**/*.{ts,tsx}\"",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,css}\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
