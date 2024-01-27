@@ -1,13 +1,13 @@
 import React from "react";
 
-interface GalleryImage {
+export interface GalleryImage {
   url: string;
   width: number;
   height: number;
   suffix?: string;
 }
 
-interface GalleryProps {
+export interface GalleryProps {
   leftImagesArray: GalleryImage[];
   rightImagesArray: GalleryImage[];
 }
