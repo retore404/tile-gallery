@@ -1,6 +1,6 @@
 {
   "name": "tile-gallery",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "A tile gallery component for react",
   "main": "./dist/index.js",
   "directories": {
