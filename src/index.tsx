@@ -10,10 +10,11 @@ export interface GalleryImage {
 export interface GalleryProps {
   leftImagesArray: GalleryImage[];
   rightImagesArray: GalleryImage[];
+  caption?: string;
 }
 
 const styles: Record<string, React.CSSProperties> = {
-  galleryWrapper: {
+  galleryImagesWrapper: {
     display: "flex",
     gap: "3px",
     width: "100%",
@@ -27,11 +28,17 @@ const styles: Record<string, React.CSSProperties> = {
     verticalAlign: "bottom",
     height: "100%",
   },
+  galleryCaption: {
+    fontSize: "75%",
+    margin: 0,
+    textAlign: "right",
+  },
 };
 
 const TileGallery: React.FunctionComponent<GalleryProps> = ({
   leftImagesArray,
   rightImagesArray,
+  caption,
 }) => {
   // 最大幅の取得
   const leftColImageMaxWidth = Math.max(
@@ -100,54 +107,59 @@ const TileGallery: React.FunctionComponent<GalleryProps> = ({
   };
 
   return (
-    <div style={styles.galleryWrapper}>
-      <div style={dynamicStyles.galleryLeftCol}>
-        {leftImagesArray.map((image) => (
-          <figure key={image.url} style={styles.galleryFigure}>
-            <a
-              href={image.url}
-              className="galleryImageLink"
-              data-lightbox={image.url}
-              data-title={image.url}
-            >
-              <img
-                src={
-                  image.suffix !== null && image.suffix !== undefined
-                    ? image.url + image.suffix
-                    : image.url
-                }
-                width={image.width}
-                height={image.height}
-                style={styles.galleryImage}
-              />
-            </a>
-          </figure>
-        ))}
+    <figure style={styles.galleryWrapper}>
+      <div style={styles.galleryImagesWrapper}>
+        <div style={dynamicStyles.galleryLeftCol}>
+          {leftImagesArray.map((image) => (
+            <figure key={image.url} style={styles.galleryFigure}>
+              <a
+                href={image.url}
+                className="galleryImageLink"
+                data-lightbox={image.url}
+                data-title={image.url}
+              >
+                <img
+                  src={
+                    image.suffix !== null && image.suffix !== undefined
+                      ? image.url + image.suffix
+                      : image.url
+                  }
+                  width={image.width}
+                  height={image.height}
+                  style={styles.galleryImage}
+                />
+              </a>
+            </figure>
+          ))}
+        </div>
+        <div style={dynamicStyles.galleryRightCol}>
+          {rightImagesArray.map((image) => (
+            <figure key={image.url} style={styles.galleryFigure}>
+              <a
+                href={image.url}
+                className="galleryImageLink"
+                data-lightbox={image.url}
+                data-title={image.url}
+              >
+                <img
+                  src={
+                    image.suffix !== null && image.suffix !== undefined
+                      ? image.url + image.suffix
+                      : image.url
+                  }
+                  width={image.width}
+                  height={image.height}
+                  style={styles.galleryImage}
+                />
+              </a>
+            </figure>
+          ))}
+        </div>
       </div>
-      <div style={dynamicStyles.galleryRightCol}>
-        {rightImagesArray.map((image) => (
-          <figure key={image.url} style={styles.galleryFigure}>
-            <a
-              href={image.url}
-              className="galleryImageLink"
-              data-lightbox={image.url}
-              data-title={image.url}
-            >
-              <img
-                src={
-                  image.suffix !== null && image.suffix !== undefined
-                    ? image.url + image.suffix
-                    : image.url
-                }
-                width={image.width}
-                height={image.height}
-                style={styles.galleryImage}
-              />
-            </a>
-          </figure>
-        ))}
-      </div>
-    </div>
+      {caption !== undefined ? (
+        <figcaption style={styles.galleryCaption}>{caption}</figcaption>
+      ) : null}
+    </figure>
   );
 };
 
